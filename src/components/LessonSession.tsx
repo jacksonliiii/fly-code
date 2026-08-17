@@ -95,9 +95,11 @@ export default function LessonSession({ title, questions, onAnswer, onExit }: Pr
         <p className="question-prompt">{current.prompt}</p>
 
         {current.code && (
-          <pre className="code-block">
-            <code>{current.code}</code>
-          </pre>
+          <div className="code-block-wrap">
+            <pre className="code-block">
+              <code>{current.code}</code>
+            </pre>
+          </div>
         )}
 
         <div className="options">

@@ -100,7 +100,9 @@ export default function App() {
   return (
     <div className="app-shell">
       <div className="screen">
-        {screen.tab === 'home' && <HomeView progress={progress} onSelectTopic={startTopic} />}
+        {screen.tab === 'home' && (
+          <HomeView progress={progress} dueCount={dueCount} onSelectTopic={startTopic} />
+        )}
         {screen.tab === 'review' && (
           <ReviewView dueCount={dueCount} totalStarted={totalStarted} onStart={startReview} />
         )}

@@ -33,18 +33,22 @@ export default function StatsView({ progress }: Props) {
 
       <div className="stats-grid">
         <div className="stat-card">
+          <span className="stat-icon">🏆</span>
           <div className="value">{topicsMastered}/{TOPICS.length}</div>
           <div className="label">Topics mastered</div>
         </div>
         <div className="stat-card">
+          <span className="stat-icon">🚀</span>
           <div className="value">{topicsStarted}/{TOPICS.length}</div>
           <div className="label">Topics started</div>
         </div>
         <div className="stat-card">
+          <span className="stat-icon">📝</span>
           <div className="value">{totalSeen}</div>
           <div className="label">Questions answered</div>
         </div>
         <div className="stat-card">
+          <span className="stat-icon">🎯</span>
           <div className="value">{accuracy}%</div>
           <div className="label">Overall accuracy</div>
         </div>

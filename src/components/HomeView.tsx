@@ -7,16 +7,22 @@ import type { ProgressState } from '../types';
 
 interface Props {
   progress: ProgressState;
+  dueCount: number;
   onSelectTopic: (topicId: string) => void;
 }
 
 const OFFSET_CLASSES = ['', 'offset-1', '', 'offset-2'];
 
-export default function HomeView({ progress, onSelectTopic }: Props) {
+export default function HomeView({ progress, dueCount, onSelectTopic }: Props) {
   return (
     <div>
       <div className="app-header">
         <h1>Interview Drills</h1>
+        {dueCount > 0 && (
+          <span className="due-pill">
+            🔥 {dueCount} due
+          </span>
+        )}
       </div>
 
       {CATEGORY_ORDER.map((category) => {
@@ -54,7 +60,10 @@ export default function HomeView({ progress, onSelectTopic }: Props) {
                               : 'var(--surface-muted)',
                           }}
                         >
-                          <div className="inner" style={{ background: started ? color : 'var(--surface)' }}>
+                          <div
+                            className={started ? 'inner' : 'inner inner-unstarted'}
+                            style={{ background: started ? color : 'var(--surface)' }}
+                          >
                             {topic.icon}
                           </div>
                         </div>
