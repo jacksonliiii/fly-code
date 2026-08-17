@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { Question } from '../types';
+import type { Question, QuestionKind } from '../types';
 
 interface Props {
   title: string;
@@ -7,6 +7,13 @@ interface Props {
   onAnswer: (questionId: string, correct: boolean) => void;
   onExit: () => void;
 }
+
+const KIND_LABELS: Record<QuestionKind, string> = {
+  concept: '',
+  output: '▶ Predict the output',
+  bug: '🐛 Spot the bug',
+  'fill-blank': '✏️ Fill in the blank',
+};
 
 export default function LessonSession({ title, questions, onAnswer, onExit }: Props) {
   const [index, setIndex] = useState(0);
@@ -61,6 +68,8 @@ export default function LessonSession({ title, questions, onAnswer, onExit }: Pr
   if (!current) return null;
 
   const progressPct = Math.round((index / total) * 100);
+  const kind = current.kind ?? 'concept';
+  const isCode = kind !== 'concept';
 
   return (
     <div className="screen">
@@ -74,11 +83,26 @@ export default function LessonSession({ title, questions, onAnswer, onExit }: Pr
           </div>
         </div>
 
+        {(kind !== 'concept' || current.company) && (
+          <div className="question-tags">
+            {kind !== 'concept' && (
+              <span className={`kind-badge kind-${kind}`}>{KIND_LABELS[kind]}</span>
+            )}
+            {current.company && <span className="company-badge">🏢 Asked at {current.company}</span>}
+          </div>
+        )}
+
         <p className="question-prompt">{current.prompt}</p>
+
+        {current.code && (
+          <pre className="code-block">
+            <code>{current.code}</code>
+          </pre>
+        )}
 
         <div className="options">
           {current.options.map((option, i) => {
-            let cls = 'option-btn';
+            let cls = isCode ? 'option-btn option-code' : 'option-btn';
             if (selected !== null) {
               if (i === current.correctIndex) cls += ' correct';
               else if (i === selected) cls += ' wrong';

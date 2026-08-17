@@ -282,11 +282,79 @@
   transition: width 0.25s ease;
 }
 
+.question-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.kind-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--surface-muted);
+  color: var(--text-muted);
+}
+
+.kind-badge.kind-bug {
+  background: color-mix(in srgb, var(--red) 16%, var(--surface));
+  color: var(--red-dark);
+}
+
+.kind-badge.kind-output {
+  background: color-mix(in srgb, var(--blue) 16%, var(--surface));
+  color: var(--blue-dark);
+}
+
+.kind-badge.kind-fill-blank {
+  background: color-mix(in srgb, var(--purple) 20%, var(--surface));
+  color: #7a2ecc;
+}
+
+.company-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--gold) 24%, var(--surface));
+  color: #8a6800;
+}
+
 .question-prompt {
   font-size: 1.15rem;
   font-weight: 800;
   line-height: 1.35;
   margin-bottom: 22px;
+}
+
+.code-block {
+  background: #1c2530;
+  color: #e6edf3;
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  overflow-x: auto;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+  -webkit-font-smoothing: antialiased;
+}
+
+.code-block code {
+  white-space: pre;
+}
+
+.option-code {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
 }
 
 .options {

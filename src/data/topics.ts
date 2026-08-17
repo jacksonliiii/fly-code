@@ -23,9 +23,8 @@ export const TOPICS: Topic[] = [
   { id: 'dp-foundations', title: 'DP Foundations', category: 'Dynamic Programming', icon: '🧩', description: '1D DP, memoization vs. tabulation, state design.' },
   { id: 'dp-advanced', title: 'DP on Grids, Intervals & Trees', category: 'Dynamic Programming', icon: '🧮', description: '2D DP, interval DP, and knapsack variants.' },
 
-  // Complexity & Bits
-  { id: 'big-o', title: 'Big-O & Amortized Analysis', category: 'Complexity & Bits', icon: '⏱️', description: 'Reasoning about runtime and space tradeoffs.' },
-  { id: 'bit-manipulation', title: 'Bit Manipulation', category: 'Complexity & Bits', icon: '💾', description: 'XOR tricks, masks, and bit-counting problems.' },
+  // Complexity Analysis
+  { id: 'big-o', title: 'Big-O & Amortized Analysis', category: 'Complexity Analysis', icon: '⏱️', description: 'Reasoning about runtime and space tradeoffs.' },
 
   // System Design
   { id: 'scalability', title: 'Scalability Fundamentals', category: 'System Design', icon: '📈', description: 'Horizontal vs vertical scaling, load balancing.' },
@@ -44,7 +43,7 @@ export const CATEGORY_ORDER = [
   'Data Structures',
   'Graphs',
   'Dynamic Programming',
-  'Complexity & Bits',
   'System Design',
+  'Complexity Analysis',
   'Behavioral',
 ] as const;
